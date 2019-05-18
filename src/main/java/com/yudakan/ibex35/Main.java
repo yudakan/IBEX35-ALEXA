@@ -3,9 +3,7 @@ package com.yudakan.ibex35;
 import com.amazon.ask.Skill;
 import com.amazon.ask.SkillStreamHandler;
 import com.amazon.ask.Skills;
-import com.yudakan.ibex35.handler.CancelandStopIntentHandler;
-import com.yudakan.ibex35.handler.HelpIntentHandler;
-import com.yudakan.ibex35.handler.SessionEndedRequestHandler;
+import com.yudakan.ibex35.handler.*;
 
 // La classe mare SkillStreamHandler s'encarrega de serialitzar
 // i deserialitzar les sol•lictuds de Alexa.
@@ -16,9 +14,13 @@ public class Main extends SkillStreamHandler {
     private static Skill getSkill() {
         return Skills.standard()
             .addRequestHandlers(
-                    new CancelandStopIntentHandler(),
-                    new HelpIntentHandler(),
-                    new SessionEndedRequestHandler())
+                new LaunchRequestHandler(),
+                new CancelandStopIntentHandler(),
+                new HelpIntentHandler(),
+                new SessionEndedRequestHandler(),
+                new ShowHandler(),
+                new WhatOneHandler(),
+                new WhatTwoHandler())
             .build();
     }
 

@@ -127,7 +127,7 @@ public class IbexConsulting {
 
             /* Extract data */
             ArrayList<Empresa> llista = new ArrayList<>();
-            StringBuilder str = new StringBuilder();
+            StringBuilder builder = new StringBuilder();
             String name, valor;
             final String taulaId = "id=\"ctl00_Contenido_tblAcciones\"";
             final String endTable = "</table>";
@@ -173,7 +173,7 @@ public class IbexConsulting {
 
             /* Build list as str */
             for(Empresa e: llista)
-                str.append(e);
+                builder.append(e);
 
             return str.toString();
         }
