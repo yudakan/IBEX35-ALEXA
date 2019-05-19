@@ -54,9 +54,8 @@ public class IbexConsulting {
         public String toString() {
 
             final StringBuilder str = new StringBuilder();
-            final String space = "                    ";
 
-            str.append(name).append(space.substring(0, space.length()-name.length())).append(valor).append(" €");
+            str.append(name).append(", ").append(valor).append(" euros").append(".\n");
 
             return str.toString();
         }
@@ -113,7 +112,7 @@ public class IbexConsulting {
 
     public static String getList(String sort) {
 
-        StringBuilder str = new StringBuilder();
+        StringBuilder builder = new StringBuilder();
 
         try {
 
@@ -127,7 +126,7 @@ public class IbexConsulting {
 
             /* Extract data */
             ArrayList<Empresa> llista = new ArrayList<>();
-            StringBuilder builder = new StringBuilder();
+            StringBuilder str = new StringBuilder();
             String name, valor;
             final String taulaId = "id=\"ctl00_Contenido_tblAcciones\"";
             final String endTable = "</table>";
@@ -175,7 +174,7 @@ public class IbexConsulting {
             for(Empresa e: llista)
                 builder.append(e);
 
-            return str.toString();
+            return builder.toString();
         }
         catch(Exception e) {
             return "Vaya, pueeeeees... no quiero hacerlo.";
